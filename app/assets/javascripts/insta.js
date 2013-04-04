@@ -1,36 +1,33 @@
-var timer;
-var photos;
-var index;
+var url = "https://api.instagram.com/v1/tags/nyc/media/recent?callback=?&client_id=28c13547ca294f84a89bef117f26b5b8";
 
-function search_insta()
+$(document).ready(insta);
+
+function insta()
 {
-  $.getJSON('https://api.instagram.com/v1/tags/nyc/media/recent?client_id=8084b02430514d3da588b2eadb44add0&callback=callbackFunction', insta_finished);
+  $.getJSON(url, showPhotos);
 }
 
-function insta_finished(data)
-{
-  index = 0;
-  photos = data.images.thumbnail.url;
-  timer = setInterval(display_photo, 50);
+function showPhotos(photos){
+  var photos_html = '';
+
+  $.each(photos.data, function(index, photo){
+    photos_html += displayPhoto(photo);
+  });
+
 }
 
-function display_photo()
-{
-  var photo = photos[index];
-  while (index < 10)
-  {
-    $('#container').append('.item'+'\n'+'  =image_tag "'+standard_res+'"');
-    index++;
+function displayPhoto(photo){
+    photo = {
+      img_id: photo.id,
+      author_name: photo.user.username,
+      instagram_link: photo.link,
+      created_time: photo.created_time,
+      thumb: photo.images.thumbnail.url,
+      low_res: photo.images.low_resolution.url,
+      standard_res: photo.images.standard_resolution.url
+    };
+    $('#container').append('<img class="item" src='+photo.standard_res+' width="250" height="250" />');
   }
-}
-// img_id = data.id
-// author_name = data.user.username
-// instagram_link = data.link
-// created_time= data.created_time
-// thumb = data.images.thumbnail.url
-// low_res = data.images.low_resolution.url
-// standard_res = data.images.standard_resolution.url
-
 
 // $('#container').isotope({
 //   layoutMode: 'cellsByColumn',
