@@ -13,3 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require 'insta.js'
+//= require 'jquery.isotope.min.js'

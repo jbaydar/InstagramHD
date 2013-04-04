@@ -14,6 +14,12 @@ function showPhotos(photos){
     photos_html += displayPhoto(photo);
   });
 
+  $('#container').isotope({
+  // options
+    itemSelector : '.isotope-item',
+    layoutMode : 'fitRows'
+  });
+
 }
 
 function displayPhoto(photo){
@@ -26,13 +32,5 @@ function displayPhoto(photo){
       low_res: photo.images.low_resolution.url,
       standard_res: photo.images.standard_resolution.url
     };
-    $('#container').append('<img class="item" src='+photo.standard_res+' width="250" height="250" />');
+    $('#container').append('<img class="isotope-item" src='+photo.standard_res+' width="250" height="250" />');
   }
-
-// $('#container').isotope({
-//   layoutMode: 'cellsByColumn',
-//   cellsByRow: {
-//     columnWidth: 240,
-//     rowHeight: 360
-//   }
-// });
