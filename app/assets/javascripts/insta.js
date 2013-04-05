@@ -1,6 +1,14 @@
+function iso()
+{
+  $('#container').isotope({
+    itemSelector : '.isotope-item',
+    layoutMode : 'fitRows'
+  });
+}
+
 var url = "https://api.instagram.com/v1/tags/nyc/media/recent?callback=?&client_id=28c13547ca294f84a89bef117f26b5b8";
 
-$(document).ready(insta);
+// $(document).ready(insta);
 
 function insta()
 {

@@ -5,6 +5,8 @@ gem 'pg'
 gem 'jquery-rails'
 gem 'haml'
 gem 'bcrypt-ruby'
+gem 'whenever'
+gem 'instagram'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20130404033122) do
 
   create_table "photos", :force => true do |t|
-    t.integer  "img_id"
+    t.string   "img_id"
     t.string   "author_name"
     t.string   "instagram_link"
     t.integer  "created_time"
