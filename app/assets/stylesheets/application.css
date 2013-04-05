@@ -11,3 +11,7 @@
  *= require_self
  *= require 'isotope.css'
  */
+body {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
