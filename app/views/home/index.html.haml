@@ -1,5 +1,5 @@
 %h1 #NYC on Instagram
 #container
   - @photosShow.each do |instagram|
-    =image_tag instagram.standard_res, :class => "isotope-item", :width => "200", :height => "200"
+    =link_to image_tag(instagram.standard_res, :class => "isotope-item"), instagram.standard_res
   = javascript_tag "iso()"
